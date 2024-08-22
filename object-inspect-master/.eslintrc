@@ -1,0 +1,61 @@
+{
+  "root": true,
+  "extends": "@ljharb",
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "rules": {
+    "complexity": 0,
+    "dot-notation": ["off"],
+    "quotes": ["off"],
+    "max-lines": ["off"],
+    "no-shadow": ["off"],
+    "function-paren-newline": ["off"],
+    "func-style": [2, 'declaration'],
+    "indent": ["error", 2],
+    "max-lines-per-function": ["off"],
+    "max-params": ["off"],
+    "max-statements": [2, 2000],
+    "max-statements-per-line": [2, {
+      "max": 2
+    }],
+    "object-curly-newline": 0,
+    "no-console": 0,
+    "no-magic-numbers": 0,
+    "no-param-reassign": 0,
+    "strict": 0, // TODO
+  },
+  "globals": {
+    "BigInt": false,
+    "WeakSet": false,
+    "WeakMap": false,
+  },
+  "overrides": [{
+      "files": ["test/**", "test-*", "example/**"],
+      "rules": {
+        "array-bracket-newline": 0,
+        "max-params": 0,
+        "max-statements": 0,
+        "max-statements-per-line": 0,
+        "sort-keys": 0,
+      },
+    },
+    {
+      "files": ["test/bigint*"],
+      "rules": {
+        "new-cap": [2, {
+          "capIsNewExceptions": ["BigInt"]
+        }],
+      },
+    },
+    {
+      "files": "index.js",
+      "globals": {
+        "HTMLElement": false,
+      },
+      "rules": {
+        "no-use-before-define": 1,
+      },
+    },
+  ],
+}
